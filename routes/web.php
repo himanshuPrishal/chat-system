@@ -6,7 +6,11 @@ use App\Http\Controllers\GroupController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StickerController;
+use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
+
+// Enable broadcasting authentication
+Broadcast::routes(['middleware' => ['web', 'auth']]);
 
 Route::get('/', function () {
     return redirect()->route('chat.index');
